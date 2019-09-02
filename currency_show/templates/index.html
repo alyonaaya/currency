@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        {% for ni in name_id %}
+        <p><a href="{{ ni[1] }}">{{ ni[0] }}</a></p>
+        {% endfor %}
+    </div>
+</body>
+</html>
