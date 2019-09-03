@@ -27,8 +27,8 @@ def index():
 @app.route("/{}".format(WEEK), methods=['GET'])
 def week():
     vid = request.args.get("id")
-    weak_ago = date.today() - timedelta(days=7)
-    rates = models.Rates.query.filter_by(fvid=vid).filter(models.Rates.date >= weak_ago).all()
+    week_ago = date.today() - timedelta(days=7)
+    rates = models.Rates.query.filter_by(fvid=vid).filter(models.Rates.date >= week_ago).all()
     date_val = []
     name = models.Currencies.query.filter_by(vid=vid).all()[0].name
     for rate in rates:

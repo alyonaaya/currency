@@ -6,6 +6,7 @@ import sqlalchemy
 import sys
 import logging
 from config import Config
+from datetime import date, timedelta
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
