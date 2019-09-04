@@ -2,13 +2,10 @@
 # -*- coding: utf-8 -*-
 import urllib.request
 import urllib.error
-import sqlalchemy
-import sys
 import logging
 from config import Config
 from datetime import date, timedelta
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from xml.etree import ElementTree as ET
 
@@ -56,7 +53,6 @@ def save_currency():
         else:
             db_rate[0].value = value / nominal
             db.session.add(db_rate[0])
-
     db.session.commit()
 
 
