@@ -12,6 +12,7 @@ import json
 WEEK = "week"
 DAY = "day"
 
+
 @app.route("/")
 def index():
     name_id = []
@@ -28,9 +29,14 @@ def index():
 def week():
     vid = request.args.get("id")
     week_ago = date.today() - timedelta(days=7)
-    rates = models.Rates.query.filter_by(fvid=vid).filter(models.Rates.date >= week_ago).all()
     date_val = []
-    name = models.Currencies.query.filter_by(vid=vid).all()[0].name
+    rates = models.Rates.query.filter_by(fvid=vid).filter(models.Rates.date >= week_ago).all()
+    try:
+        name = models.Currencies.query.filter_by(vid=vid).all()[0].name
+    except IndexError as ie:
+        # vid not found in db
+        return render_template("error.html", message="ID {} not found".format(vid))
+
     for rate in rates:
         date_val.append((rate.date, rate.value))
     return render_template("{}.html".format(WEEK), vid=vid, data=name, date_value=date_val)
