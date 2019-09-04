@@ -13,5 +13,6 @@ RUN chmod +x boot.sh
 
 ENV FLASK_APP currency_show.py
 
+
 EXPOSE 5000
 ENTRYPOINT ["sh","./boot.sh"]
