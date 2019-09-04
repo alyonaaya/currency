@@ -1,5 +1,7 @@
 #!/bin/sh
 source venv/bin/activate
+
+mkdir dbdata
 flask db upgrade
 
 venv/bin/python currency_get.py
