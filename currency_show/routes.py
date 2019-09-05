@@ -38,7 +38,7 @@ def week():
         return render_template("error.html", message="ID {} not found".format(vid))
 
     for rate in rates:
-        date_val.append((rate.date, rate.value))
+        date_val.append((rate.date, "{:10.4f}".format(rate.value)))
     return render_template("{}.html".format(WEEK), vid=vid, data=name, date_value=date_val)
 
 
