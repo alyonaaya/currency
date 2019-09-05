@@ -5,6 +5,8 @@ import sys
 import urllib.request
 import urllib.error
 
+from decimal import *
+
 
 def get_data(url):
     try:
@@ -28,5 +30,5 @@ if __name__ == "__main__":
     for line in data:
         if len(line) != 2:
             sys.exit("Wrong server responce")
-        print("{}: {}".format(line[0], line[1]))
+        print("{}: {:10.4f}".format(line[0], line[1]))
 
