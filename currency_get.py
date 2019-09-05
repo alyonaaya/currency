@@ -48,10 +48,10 @@ def save_currency():
         if len(db_curr) == 0:
             db.session.add(curr)
         if len(db_rate) == 0:
-            rate = models.Rates(fvid=vid, value=value)
+            rate = models.Rates(fvid=vid, value=value / nominal)
             db.session.add(rate)
         else:
-            db_rate[0].value = value
+            db_rate[0].value = value / nominal
             db.session.add(db_rate[0])
     db.session.commit()
 
