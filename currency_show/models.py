@@ -7,7 +7,7 @@ class Rates(db.Model):
     value = db.Column(db.Float)
 
     def __repr__(self):
-        return '<Rates {}>'.format(self.vid)
+        return '<Rates {}>'.format(self.fvid)
 
 
 class Currencies(db.Model):
